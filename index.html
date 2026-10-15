@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stick &amp; Save</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="./">Stick<span>&amp;</span>Save</a>
+  <label class="search">
+    <span class="sr">Search stickers</span>
+    <input id="search" type="search" placeholder="Search" autocomplete="off">
+  </label>
+  <a class="jump" href="#cart">Cart <b id="count">0</b></a>
+</header>
+
+<div class="promo">
+  Add stickers to your cart, then paste them into the <a href="https://feelers-ashley.github.io/stickerbook/" target="_blank" rel="noopener">stickerbook</a>.
+</div>
+
+<div class="shop">
+  <main>
+    <div id="grid" class="grid"></div>
+    <p id="none" class="none" hidden>Nothing on this shelf matches that search.</p>
+  </main>
+
+  <aside id="cart" aria-label="Your cart">
+    <div class="cart-head">
+      <h2>Your Cart</h2>
+      <button id="clear" class="link" hidden>Empty Cart</button>
+    </div>
+    <div id="items"></div>
+    <div id="checkout" class="checkout" hidden>
+      <div class="total"><span>Total</span><b id="total"></b></div>
+      <button id="copyall" class="buy">Copy All Code</button>
+    </div>
+  </aside>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
