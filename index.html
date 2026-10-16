@@ -1,46 +1,106 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stick &amp; Save</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stick &amp; Save</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="firebase-config.js"></script>
+  </head>
+  <body>
+    <header class="top">
+      <a class="logo" href="./">Stick<span>&amp;</span>Save</a>
+      <label class="search">
+        <span class="sr">Search stickers</span>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search"
+          autocomplete="off"
+        />
+      </label>
+      <button id="add-open" class="addnew" type="button">Add a Sticker</button>
+      <a class="jump" href="#cart">Cart <b id="count">0</b></a>
+    </header>
 
-<header class="top">
-  <a class="logo" href="./">Stick<span>&amp;</span>Save</a>
-  <label class="search">
-    <span class="sr">Search stickers</span>
-    <input id="search" type="search" placeholder="Search" autocomplete="off">
-  </label>
-  <a class="jump" href="#cart">Cart <b id="count">0</b></a>
-</header>
-
-<div class="promo">
-  Add stickers to your cart, then paste them into the <a href="https://feelers-ashley.github.io/stickerbook/" target="_blank" rel="noopener">stickerbook</a>.
-</div>
-
-<div class="shop">
-  <main>
-    <div id="grid" class="grid"></div>
-    <p id="none" class="none" hidden>Nothing on this shelf matches that search.</p>
-  </main>
-
-  <aside id="cart" aria-label="Your cart">
-    <div class="cart-head">
-      <h2>Your Cart</h2>
-      <button id="clear" class="link" hidden>Empty Cart</button>
+    <div class="promo">
+      Add stickers to your cart, then paste them into the
+      <a
+        href="https://feelers-ashley.github.io/stickerbook/"
+        target="_blank"
+        rel="noopener"
+        >stickerbook</a
+      >.
     </div>
-    <div id="items"></div>
-    <div id="checkout" class="checkout" hidden>
-      <div class="total"><span>Total</span><b id="total"></b></div>
-      <button id="copyall" class="buy">Copy All Code</button>
-    </div>
-  </aside>
-</div>
 
-<script src="script.js" defer></script>
-</body>
+    <div class="shop">
+      <main>
+        <div id="grid" class="grid"></div>
+        <p id="none" class="none" hidden>
+          Nothing on this shelf matches that search.
+        </p>
+      </main>
+
+      <aside id="cart" aria-label="Your cart">
+        <div class="cart-head">
+          <h2>Your Cart</h2>
+          <button id="clear" class="link" hidden>Empty Cart</button>
+        </div>
+        <div id="items"></div>
+        <div id="checkout" class="checkout" hidden>
+          <div class="total"><span>Total</span><b id="total"></b></div>
+          <button id="copyall" class="buy">Copy All Code</button>
+        </div>
+      </aside>
+    </div>
+
+    <dialog id="add-dialog" aria-labelledby="add-title">
+      <form id="new-form" autocomplete="off">
+        <h2 id="add-title">Add a Sticker</h2>
+        <p class="hint">
+          Paste the p5.js code for your sticker. It will be added to the shop
+          for everyone. Plain drawing calls only: no loops or variables.
+        </p>
+        <div class="add-grid">
+          <label
+            >Code
+            <textarea
+              id="new-code"
+              rows="14"
+              spellcheck="false"
+              placeholder="function mySticker(x, y, s = 0.3) {&#10;  push();&#10;  translate(x, y);&#10;  scale(s);&#10;  fill('#f7ee3a');&#10;  rect(20, 50, 200, 140);&#10;  pop();&#10;}"
+            ></textarea>
+          </label>
+          <div>
+            <div class="pic">
+              <img
+                id="new-pic"
+                alt="Preview of your sticker"
+                width="240"
+                height="240"
+              />
+            </div>
+            <label
+              >Title
+              <input
+                id="new-title"
+                maxlength="30"
+                placeholder="Up to 3 words"
+              />
+            </label>
+          </div>
+        </div>
+        <p id="new-msg" class="msg" role="status"></p>
+        <div class="add-actions">
+          <button type="button" id="new-cancel" class="link">Cancel</button>
+          <button type="submit" id="new-publish" class="buy" disabled>
+            Add to Shop
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js" defer></script>
+  </body>
 </html>
