@@ -291,7 +291,8 @@ const STICKERS = [
   { name: 'shortcan', title: 'Short Can', code: `function shortcan(x, y, s = 0.3) {
   push();
   translate(x, y);
-  scale(s);
+  scale(s * 1.08);
+  translate(2, -44);
   noStroke();
   fill('#999');
   ellipse(110, 188, 185, 57);
@@ -317,7 +318,8 @@ const STICKERS = [
   { name: 'fish', title: 'Fish', code: `function fish(x, y, s = 0.3) {
   push();
   translate(x, y);
-  scale(s);
+  scale(s * 2.53);
+  translate(-63, -130);
   noStroke();
   fill('#c4cc35');
   ellipse(103, 177, 64, 30);
@@ -331,7 +333,8 @@ const STICKERS = [
   { name: 'tallcan', title: 'Tall Can', code: `function tallcan(x, y, s = 0.3) {
   push();
   translate(x, y);
-  scale(s);
+  scale(s * 0.8);
+  translate(40, -58);
   noStroke();
   fill('#999');
   ellipse(110, 308, 170, 52);
@@ -360,7 +363,8 @@ const STICKERS = [
   { name: 'tomato', title: 'Tomato', code: `function tomato(x, y, s = 0.3) {
   push();
   translate(x, y);
-  scale(s);
+  scale(s * 1.71);
+  translate(-47, -43);
   noStroke();
   fill('#cc3c35');
   ellipse(102, 124, 85, 82);
@@ -434,6 +438,7 @@ const STICKERS = [
   push();
   translate(x, y);
   scale(s);
+  translate(-3, 32);
   noStroke();
   fill('#e8453c');
   rect(21, 36, 205, 104);
@@ -464,7 +469,8 @@ const STICKERS = [
   { name: 'nutritionFacts', title: 'Nutrition Facts', code: `function nutritionFacts(x, y, s = 0.3) {
   push();
   translate(x, y);
-  scale(s);
+  scale(s * 0.89);
+  translate(5, 45);
   stroke('#1c1c1c');
   strokeWeight(3);
   fill('#ffffff');
@@ -490,7 +496,8 @@ const STICKERS = [
   { name: 'corn', title: 'Corn', code: `function corn(x, y, s = 0.3) {
   push();
   translate(x, y);
-  scale(s);
+  scale(s * 1.18);
+  translate(-27, -25);
   noStroke();
   push();
   fill('#5bb450');
